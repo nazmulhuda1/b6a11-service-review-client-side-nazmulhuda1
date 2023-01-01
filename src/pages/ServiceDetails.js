@@ -60,6 +60,7 @@ const ServiceDetails = () => {
             .then(data => {
                 if (data.success) {
                     setReviews(data.data)
+                    setRefresh(!refresh);
                 } else {
                     toast.error(data.error)
                 }

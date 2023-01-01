@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Helmet from '../componanet/CommonSection/Helmet';
@@ -6,10 +6,11 @@ import { AuthContext } from '../Context/AuthProvider';
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, resetPassword } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
+    const [userEmail, setUserEmail] = useState(' ')
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -32,6 +33,16 @@ const Login = () => {
                 toast.error(errorCode, errorMessage);
             });
     }
+    const handleReset = () => {
+        resetPassword(userEmail)
+            .then(() => {
+                toast.success('Reset link has been sent | Please Check Your Email')
+            })
+            .catch((error) => {
+                toast.error(error.message)
+                // ..
+            });
+    }
 
     return (
         <Helmet title={'login'}>
@@ -44,14 +55,14 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                <input onBlur={(event) => setUserEmail(event.target.value)} type="text" name='email' placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="text" name='password' placeholder="password" className="input input-bordered" />
-                                <label className="label">
+                                <label onClick={handleReset} className="label">
                                     <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>

@@ -11,7 +11,7 @@ const ProductReview = ({ item }) => {
                     user?.email ? <>
                         <img className='w-8 h-8 rounded-full' src={user.photoURL} alt="user" />
                     </> : <>
-                        <img src={avater} alt='' />
+                        <img className='w-8 h-8 rounded-full' src={avater} alt='' />
                     </>
                 }
                 <h4 className='pl-3'>{item.name}</h4>

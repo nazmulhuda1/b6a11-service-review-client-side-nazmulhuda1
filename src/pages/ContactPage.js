@@ -29,7 +29,13 @@ const ContactPage = () => {
                 </div>
                 <div className="">
                     <div className="contact-form">
-                        form
+                        <form action="">
+                            <div className="md:flex gap-4">
+                                <input type="text" className='input input-primary' placeholder='Name' />
+                                <input type="email" className='input input-primary' placeholder='exapmple@gmail.com' />
+                            </div>
+                            <textarea name="textarea" id="" rows="6" placeholder='Messgage'></textarea>
+                        </form>
                     </div>
                 </div>
             </div>

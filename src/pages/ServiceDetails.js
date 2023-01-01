@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import Helmet from '../componanet/CommonSection/Helmet';
 import ProductReview from './ProductReview';
 
-
 const ServiceDetails = () => {
     const [tab, setTab] = useState('desc')
     const router = useParams();
@@ -13,10 +12,7 @@ const ServiceDetails = () => {
     const [refresh, setRefresh] = useState(false)
     const { id } = router;
 
-    // const navigate = useNavigate();
-
     const { name, image, price, shortDesc, description, category } = service;
-
 
     useEffect(() => {
         fetch(`http://localhost:5000/services/${id}`)
@@ -30,10 +26,6 @@ const ServiceDetails = () => {
             })
             .catch((err) => toast.error(err.message));
     }, [id]);
-    console.log(service);
-
-    // const details = service.find(item => item._id === id);
-    // const { name } = details
 
     const handleReview = (e) => {
         e.preventDefault();

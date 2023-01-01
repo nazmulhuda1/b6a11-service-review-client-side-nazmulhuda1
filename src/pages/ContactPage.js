@@ -34,7 +34,7 @@ const ContactPage = () => {
                                 <input type="text" className='input input-primary' placeholder='Name' />
                                 <input type="email" className='input input-primary' placeholder='exapmple@gmail.com' />
                             </div>
-                            <textarea name="textarea" id="" rows="6" placeholder='Messgage' className='w-full border-l-teal-500 border input-primary'></textarea>
+                            <textarea name="textarea" id="" rows="6" placeholder='Messgage' className='w-full rounded-lg border p-2 input-primary'></textarea>
                         </form>
                     </div>
                 </div>

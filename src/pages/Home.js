@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Helmet from '../componanet/CommonSection/Helmet';
 import ServiceList from '../componanet/Shared/ServiceList';
+import ContactPage from './ContactPage';
 import HeaderBanner from './HeaderBanner';
 import ServiceIcon from './ServiceIcon';
 
@@ -40,6 +41,7 @@ const Home = () => {
                     <button className="btn btn-primary"> <Link to='/service'>All Services</Link> </button>
                 </div>
             </section>
+            <ContactPage />
         </Helmet>
     );
 };

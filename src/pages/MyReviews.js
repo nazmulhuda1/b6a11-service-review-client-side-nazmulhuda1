@@ -58,7 +58,10 @@ const MyReviews = () => {
                                 return (
                                     <tr>
                                         <td>{item.name}</td>
-                                        <td>{item.text}</td>
+                                        <td>{item.text.length > 80 ?
+                                            `${item.text.substring(0, 80)} [...]` : item.text
+                                        }</td>
+                                        {/* <td>{item.text.substring(0, 250)}</td> */}
                                         <td>
                                             <span onClick={() => handleEdit(item._id)} className='text-xl text-sky-400 p-3 cursor-pointer'>
                                                 <i class="ri-edit-line"></i>

@@ -15,7 +15,7 @@ const ServiceDetails = () => {
     const { name, image, price, shortDesc, description, category } = service;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://b6a11-service-review-server-side-nazmulhuda1.vercel.app/services/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
@@ -35,7 +35,7 @@ const ServiceDetails = () => {
             text: e.target.text.value,
         };
 
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://b6a11-service-review-server-side-nazmulhuda1.vercel.app/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -55,7 +55,7 @@ const ServiceDetails = () => {
             })
     }
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://b6a11-service-review-server-side-nazmulhuda1.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 if (data.success) {

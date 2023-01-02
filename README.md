@@ -1,3 +1,14 @@
+## React router dom initialized
+## install express, cors, mongobd
+## install dotenv
+## firebase authentication use
+## tailwindcss framework use
+## firebase deploy client site
+## vercel deplop server site
+ 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

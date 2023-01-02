@@ -6,7 +6,7 @@ import { AuthContext } from '../Context/AuthProvider';
 
 
 const Login = () => {
-    const { signIn, resetPassword } = useContext(AuthContext);
+    const { signIn, resetPassword, googleLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
@@ -33,6 +33,17 @@ const Login = () => {
                 toast.error(errorCode, errorMessage);
             });
     }
+    // Google singin
+    const handleGoogleSingIn = () => {
+        googleLogin()
+            .then((result) => {
+                navigate(from, { replace: true })
+                toast.success('Login Success Full')
+            }).catch((error) => {
+                toast.error(error.message)
+            });
+    }
+    // reset password
     const handleReset = () => {
         resetPassword(userEmail)
             .then(() => {
@@ -73,6 +84,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <p className='text-sm'>Create a New Account <Link className='font-semibold hover:underline ' to={"/signup"}>Sing Up</Link> </p>
                         </div>
+                        <button onClick={handleGoogleSingIn} className="mt-7 "> <img className='w-5 h-5 text-center inline-block' src="https://freesvg.org/img/1534129544.png" alt="" /> <span className='font-semibold'>Google</span></button>
                     </div>
                 </div>
             </div>

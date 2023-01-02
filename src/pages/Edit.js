@@ -10,7 +10,7 @@ const Edit = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${id}`)
+        fetch(`https://b6a11-service-review-server-side-nazmulhuda1.vercel.app/reviews/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
@@ -31,7 +31,7 @@ const Edit = () => {
             text: e.target.text.value,
         };
 
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://b6a11-service-review-server-side-nazmulhuda1.vercel.app/reviews/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
